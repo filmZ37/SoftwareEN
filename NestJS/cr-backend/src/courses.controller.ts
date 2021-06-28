@@ -7,7 +7,7 @@ export class CoursesController {
   @Get()
   findAll() : any {
     return {
-        message: 'hello worldy'
+        message: 'MESSAGE FROM BACKEND'
     };
   }
 }
