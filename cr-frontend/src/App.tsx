@@ -6,6 +6,8 @@ type AppState = {
   message: string ;
 };
 
+
+// ----------------------------- Use const & hook message ----------------------------
 const App = () => {
   const [message , setMessage] = useState('My message');
 
@@ -24,7 +26,8 @@ const App = () => {
     </div>
   );
 }
-/*
+
+/* ----------------------------------- Use class component & Mount ---------------
 class App extends React.Component<{},AppState> {
   state: AppState = {
     message: 'DEFAULT MESSAGE IN FRONTEND',
@@ -48,5 +51,38 @@ class App extends React.Component<{},AppState> {
 }
 
 */
+/*
+// ---------------------------- Use class component & set state---
+type AppProps = {
+  message?: string ;          // use '?' to let either have/not have
+};
+
+type AppState = {
+  counter : number;
+};
+
+class App extends React.Component<AppProps , AppState> {
+  state : AppState = {
+    counter : 0 
+  };
+
+  incCounter = () =>{
+    this.setState({counter: this.state.counter+1});
+  };
+
+  render() {
+    return (
+      <div>
+        {this.props.message ? this.props.message : 'Nothings here'}
+        <br/>
+        Counter : {this.state.counter}
+        <br/>
+        <button onClick={this.incCounter} > click me to Increase</button>
+      </div>
+    )
+  }
+}
+*/
+
 
 export default App;
