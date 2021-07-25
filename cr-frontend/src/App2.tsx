@@ -12,9 +12,19 @@ type App2State = {
 };
 
 const App2 = (props: App2Props) => {
-    return(
+  const [counter,setCounter] = useState<number>(0);
+
+  const incCounter = () =>{
+    setCounter(counter +1);
+  }
+    return( 
         <div>
             {props.message ? props.message : "There is no message."}
+            <br/>
+            Counter = {counter}
+            <br/>
+            <button onClick={incCounter}>click me to increase</button>
+
         </div>
     )
 }

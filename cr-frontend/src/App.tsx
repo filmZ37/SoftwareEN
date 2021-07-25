@@ -9,20 +9,26 @@ type AppState = {
 
 // ----------------------------- Use const & hook message ----------------------------
 const App = () => {
-  const [message , setMessage] = useState('My message');
+  const [Courses , setCourses] = useState<any[]>([]);
 
   useEffect(() => {
     fetch('http://localhost:3000/courses')
       .then(res => res.json() , )
-      .then(obj => {
-        setMessage(obj.message)
+      .then(Courses => {
+        setCourses(Courses)
       });
 
   },[]);
 
   return (
-    <div>
-      {message}
+
+    <div className='App' >
+      <ul>
+        {Courses.map((item) => (
+          <li key={item.id}>{item.number} - {item.title}</li>
+        ))}
+      </ul>
+      
     </div>
   );
 }
